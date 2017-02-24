@@ -17,3 +17,11 @@ def sign_up_with_another_user
   click_button('Sign up')
   @user = User.find_by_email('test2@example.com')
 end
+
+def leave_review(thoughts, rating)
+  visit '/restaurants'
+  click_link 'Review KFC'
+  fill_in 'Thought', with: thoughts
+  select rating, from: 'Rating'
+  click_button 'Leave Review'
+end
